@@ -13,10 +13,11 @@ uses for_each with computed values and the output is passed to a module with val
 - ❌ Broken: OpenTofu >= 1.9.0
 
 ## STEPS TO REPRODUCE:
-1. Apply configuration with OpenTofu 1.8.9: `tofu apply` → ✅ Success
-2. Destroy with OpenTofu 1.8.9: `tofu destroy` → ✅ Success  
-3. Apply configuration with OpenTofu 1.9.0+: `tofu apply` → ✅ Success
-4. Destroy with OpenTofu 1.9.0+: `tofu destroy` → ❌ Error:
+1. Setup AWS credentials
+2. Apply configuration with OpenTofu 1.8.9: `tofu apply` → ✅ Success
+3. Destroy with OpenTofu 1.8.9: `tofu destroy` → ✅ Success  
+4. Apply configuration with OpenTofu 1.9.0+: `tofu apply` → ✅ Success
+5. Destroy with OpenTofu 1.9.0+: `tofu destroy` → ❌ Error:
 
 ```text
 │ Error: Invalid for_each argument
@@ -35,3 +36,7 @@ uses for_each with computed values and the output is passed to a module with val
 │
 │ Alternatively, you could use the -target planning option to first apply only the resources that the for_each value depends on, and then apply a second time to fully converge.
 ```
+
+## RELATED LINKS:
+- https://github.com/opentofu/opentofu/releases/tag/v1.9.0
+- https://github.com/opentofu/opentofu/blob/v1.9.0/CHANGELOG.md
