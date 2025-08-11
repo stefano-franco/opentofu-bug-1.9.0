@@ -32,7 +32,7 @@ terraform {
 # this is just a simple example of this usage pattern of reading existing resources and passing them to a module
 # in this case, we read all IAM role names and then get the details of each role via a data source with for_each
 data "aws_iam_roles" "all" {}
-data "aws_iam_role" "organization_account_access_role" {
+data "aws_iam_role" "details" {
   for_each = {
     for role in data.aws_iam_roles.all.names : role => role
   }
@@ -46,5 +46,5 @@ module "dummy_module" {
   source = "./modules/dummy"
 
   # NOTE: 'OrganizationAccountAccessRole' is only available if account is part of an AWS Organization (replace otherwise)
-  dummy_string = data.aws_iam_role.organization_account_access_role["OrganizationAccountAccessRole"].arn
+  dummy_string = data.aws_iam_role.details["OrganizationAccountAccessRole"].arn
 }
