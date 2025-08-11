@@ -13,7 +13,7 @@ uses for_each with computed values and the output is passed to a module with val
 - ❌ Broken: OpenTofu >= 1.9.0
 
 ## STEPS TO REPRODUCE:
-1. Setup AWS credentials
+1. Setup AWS credentials and run `tofu init`
 2. Apply configuration with OpenTofu 1.8.9: `tofu apply` → ✅ Success
 3. Destroy with OpenTofu 1.8.9: `tofu destroy` → ✅ Success  
 4. Apply configuration with OpenTofu 1.9.0+: `tofu apply` → ✅ Success
@@ -38,5 +38,6 @@ uses for_each with computed values and the output is passed to a module with val
 ```
 
 ## RELATED LINKS:
+This issue was introduced with opentofu 1.9.0
 - https://github.com/opentofu/opentofu/releases/tag/v1.9.0
 - https://github.com/opentofu/opentofu/blob/v1.9.0/CHANGELOG.md

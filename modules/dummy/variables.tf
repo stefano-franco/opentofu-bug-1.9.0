@@ -1,10 +1,10 @@
-variable "test_string" {
-  description = "Test string variable for the dummy module"
+variable "dummy_string" {
+  description = "String variable for the dummy module"
   type        = string
   default     = ""
 
   validation {
-    condition     = length(var.test_string) > 0
-    error_message = "\"var.test_string\" cannot be empty."
+    condition     = length(var.dummy_string) > 0
+    error_message = "\"dummy_string\" cannot be empty."
   }
 }
